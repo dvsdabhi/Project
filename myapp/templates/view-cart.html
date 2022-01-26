@@ -1,0 +1,175 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+	<!-- ================ start banner area ================= -->	
+	<section class="blog-banner-area" id="category">
+		<div class="container h-100">
+			<div class="blog-banner">
+				<div class="text-center">
+					<h1>Shopping Cart</h1>
+					<nav aria-label="breadcrumb" class="banner-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+            </ol>
+          </nav>
+				</div>
+			</div>
+    </div>
+	</section>
+	<!-- ================ end banner area ================= -->
+  
+  
+
+  <!--================Cart Area =================-->
+  <section class="cart_area">
+      <div class="container">
+          <div class="cart_inner">
+              <div class="table-responsive">
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th>Product</th>
+                              <th>Name</th>
+                              <th>Price</th>
+                              <th>Quantity</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      
+                      <tbody>
+                        {% if cart.product %}
+                        {% for i in cart.product.all %}
+                          <tr>
+                              <td>
+                                <img src="{{i.pic.url}}" height="100" width="100" alt="">
+                              </td>
+                              <td>{{i.name}}</td>
+                              <td>{{i.price}}</td>
+                              <td>
+                                <div class="input-text">
+                                    <div class="col-md-12 form-group">
+                                        <select name="role" class="form-control" id="">
+                                            <option value="----">1</option>
+                                            <option value="1">2</option>
+                                            <option value="1">3</option>
+                                            <option value="----">4</option>
+                                            <option value="1">5</option>
+                                            <option value="1">6</option>
+                                            <option value="----">7</option>
+                                            <option value="1">8</option>
+                                            <option value="1">9</option>
+                                            <option value="1">10</option>
+
+                                        </select>	
+                                    </div>
+                                </div>
+                              </td>
+                              
+                              <td><a href="{% url 'delete-cart' i.id %}"><button class="btn btn-danger"><i class="fa fa-trash"></i></button></a></td>
+                          </tr>
+                          {% endfor %}
+                          {% else %}
+
+                          <h1>Cart is Empty</h1>
+
+                          {% endif %}
+
+                          
+
+        
+
+                          <!-- <tr class="bottom_button">
+                              <td>
+                                  <a class="button" href="#">Update Cart</a>
+                              </td>
+                              <td>
+
+                              </td>
+                              <td>
+
+                              </td>
+                              <td>
+                                  <div class="cupon_text d-flex align-items-center">
+                                      <input type="text" placeholder="Coupon Code">
+                                      <a class="primary-btn" href="#">Apply</a>
+                                      <a class="button" href="#">Have a Coupon?</a>
+                                  </div>
+                              </td>
+                          </tr> -->
+                          <!-- <tr>
+                              <td>
+
+                              </td>
+                              <td>
+
+                              </td>
+                              <td>
+                                  <h5>Subtotal</h5>
+                              </td>
+                              <td>
+                                  <h5>$2160.00</h5>
+                              </td>
+                          </tr>
+                          <tr class="shipping_area">
+                              <td class="d-none d-md-block">
+
+                              </td>
+                              <td>
+
+                              </td>
+                              <td>
+                                  <h5>Shipping</h5>
+                              </td>
+                              <td>
+                                  <div class="shipping_box">
+                                      <ul class="list">
+                                          <li><a href="#">Flat Rate: 5.00</a></li>
+                                          <li><a href="#">Free Shipping</a></li>
+                                          <li><a href="#">Flat Rate: 10.00</a></li>
+                                          <li class="active"><a href="#">Local Delivery: 80.00/-</a></li>
+                                      </ul>
+                                      <h6>Calculate Shipping <i class="fa fa-caret-down" aria-hidden="true"></i></h6>
+                                      <select class="shipping_select">
+                                          <option value="1">Bangladesh</option>
+                                          <option value="2">India</option>
+                                          <option value="4">Shree Lanka</option>
+                                      </select>
+                                      <select class="shipping_select">
+                                          <option value="1">Select a State</option>
+                                          <option value="2">Select a State</option>
+                                          <option value="4">Select a State</option>
+                                      </select>
+                                      <input type="text" placeholder="Postcode/Zipcode">
+                                      <a class="gray_btn" href="#">Update Details</a>
+                                  </div>
+                              </td>
+                          </tr>
+                          <tr class="out_button_area">
+                              <td class="d-none-l">
+
+                              </td>
+                              <td class="">
+
+                              </td>
+                              <td>
+
+                              </td>
+                              <td>
+                                  <div class="checkout_btn_inner d-flex align-items-center">
+                                      <a class="gray_btn" href="#">Continue Shopping</a>
+                                      <a class="primary-btn ml-2" href="#">Proceed to checkout</a>
+                                  </div>
+                              </td>
+                          </tr> -->
+                      </tbody>
+                  </table>
+              </div>
+              <input  type="submit" class="button" value="Order Now!">
+          </div>
+      </div>
+  </section>
+  <!--================End Cart Area =================-->
+
+
+{% endblock %}

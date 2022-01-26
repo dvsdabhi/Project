@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %} 
+
+
+  <div class="col-lg-12">
+  <div class="login_form_inner register_form_inner">
+    <h3>Otp Verification</h3>
+{% if msg %}
+<p style="color: red;margin: 5px; padding: 5px;">{{msg}}</p>
+{% endif %}
+<form class="row login_form" action="{% url 'otps' %}" id="register_form" method="POST">
+  {% csrf_token %}
+  <div class="col-md-12 form-group">
+    <input type="text" class="form-control" id="" name="uotp" placeholder="Enter Your Otp" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Otp'">
+  </div>
+  <input type="hidden" value="{{otp}}" id="" name='otp'>
+  <div class="col-md-12 form-group">
+    <button type="submit"  class="button button-register w-100">Submit</button>
+  </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+from os import name
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('',views.index,name='index'),
+    path('all-product/',views.all_product,name='all-product'),
+    path('view-product/<int:pk>',views.view_product,name='view-product'),
+    path('checkout/',views.checkout,name='checkout'),
+    path('confirmation/',views.confirmation,name='confirmation'),
+    path('add-to-cart/<int:pk>',views.add_to_cart,name='add-to-cart'),
+    path('blog/',views.blog,name='blog'),
+    path('blog-details/',views.blog_detail,name='single-blog'),
+    path('login/',views.login,name='login'),
+    path('register/',views.register,name='register'),
+    path('tracking/',views.order_tracking,name='tracking-order'),
+    path('contact/',views.contact,name='contact'),
+    path('otp/',views.otp,name='otp'),
+    path('profile/',views.profile,name='profile'),
+    path('logout/',views.logout,name='logout'),
+    path('forgot-password/',views.forgot_password,name='forgot-pass'),
+    path('add-product/',views.add_product,name='add-product'),
+    path('seller-product/',views.seller_product,name='seller-product'),
+    path('edit-product/<int:pk>',views.edit_product,name='edit-product'),
+    path('delete-product/<int:pk>',views.delete_product, name='delete-product'),
+    path('view-cart/',views.view_cart, name='view-cart'),
+    path('delete-cart/<int:pk>',views.delete_cart,name='delete-cart'),
+    # path('new',views.new,name='new'),
+    path('buy-order/<int:pk>',views.buy_order,name='buy-order'),
+    path('buy-order/paymenthandler/', views.paymenthandler, name='paymenthandler'),
+    path('new1/',views.new1,name='new1'),
+    path('seller-buy-product/',views.seller_buy_product,name='seller-buy-product'),
+    path('view-buy-product/<int:pk>', views.view_buy_product, name='view-buy-product'),
+    # path('view-your-order/', views.view_your_order, name='view-your-order'),
+]
