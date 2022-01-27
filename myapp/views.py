@@ -455,7 +455,7 @@ def view_buy_product(request,pk):
 #     return redirect('seller-buy-product')
 
 
-# def view_your_order(request):
-#     uid= User.objects.get(email=request.session['email'])
-#     buy =Buy.objects.all()
-#     return render(request,'view-your-order.html',{'uid':uid},{'buy':buy})
+def view_your_order(request):
+    uid= User.objects.get(email=request.session['email'])
+    buy =Buy.objects.all()[::-1]
+    return render(request,'view-your-order.html',{'uid':uid,'buy':buy})

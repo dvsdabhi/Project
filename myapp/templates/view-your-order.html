@@ -1,0 +1,77 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block title %}
+<title>View Product</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <br><br><br>
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Your Products</h1>
+    
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary" style="text-align: center;">Your All Order</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr style="background-color: rgb(226, 226, 226); ">
+                            <th>Buyer's Name</th>
+                            <th>Product</th>
+                            <th>quantity</th>
+                            <th>Price paid</th>
+                            <th>Order Date</th>
+                            <th>Delievery date</th>
+                            <th>View Buy details</th>
+                            <th>Delievery status</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr style="background-color: rgb(226, 226, 226); ">
+                            <th>Buyer's Name</th>
+                            <th>Product</th>
+                            <th>quantity</th>
+                            <th>Price paid</th>
+                            <th>Order Date</th>
+                            <th>Delievery date</th>
+                            <th>View Buy details</th>
+                            <th>Delievery status</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for pro in buy %}
+                        {% if pro.uid.email == request.session.email %}
+                       <tr>
+                            <td>{{pro.uid.username}}</td>
+                            <td>{{pro.product.name}}</td>
+                            <td>{{pro.quantity}}</td>
+                            <td>{{pro.pay_amount}}</td>
+                            <td>{{pro.order_date}}</td>
+                            <td>{{pro.expected_del}}</td>
+                            <td><a href="{% url 'view-buy-product' pro.id %}"> <i class="fa fa-eye"></i></a></td>
+                            {% if pro.status == False %}
+                            <td><a href="#"><button class="btn btn-primary">Pending Delieverd</button></a></td>
+                            {% else %}
+                            <td>Dilivery complete</td>
+                            {% endif %}
+                       </tr>
+                       {% endif %}
+                       {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+
+{% endblock %}

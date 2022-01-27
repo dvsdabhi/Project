@@ -31,5 +31,5 @@ urlpatterns = [
     path('new1/',views.new1,name='new1'),
     path('seller-buy-product/',views.seller_buy_product,name='seller-buy-product'),
     path('view-buy-product/<int:pk>', views.view_buy_product, name='view-buy-product'),
-    # path('view-your-order/', views.view_your_order, name='view-your-order'),
+    path('view-your-order/', views.view_your_order, name='view-your-order'),
 ]
