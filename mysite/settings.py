@@ -130,7 +130,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'dabhid962@gmail.com'
-EMAIL_HOST_PASSWORD = 'dvs@12#12'
+EMAIL_HOST_PASSWORD = 'dvs@1234#1234'
 
 
 MEDIA_URL = '/media/'
