@@ -121,7 +121,7 @@ a {
   box-shadow: 0px 10px 27px 3px rgba(221, 221, 221, 0.3);
 }
 .header_area .navbar {
-  background: yellow;
+  /* background:white; */
   padding: 0px;
   border: 0px;
   border-radius: 0px;
@@ -238,7 +238,7 @@ a {
   top: -70px;
   left: 0;
   right: 0;
-  background: #ffffff;
+  background: white;
   -webkit-transform: translateY(70px);
   -moz-transform: translateY(70px);
   -ms-transform: translateY(70px);
